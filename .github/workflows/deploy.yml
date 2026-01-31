@@ -33,8 +33,8 @@ jobs:
       - name: Build Astro site
         run: npm run build
         env:
-          BASE_PATH: hulk-playground
-          SITE_URL: https://${{ github.repository_owner }}.github.io
+          # Custom domain deploy (root). Do NOT set BASE_PATH here.
+          SITE_URL: https://hulk.reneb.au
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
