@@ -2,8 +2,7 @@
 const { title, description } = Astro.props;
 const pageTitle = title ? `${title} · Hulk Playground` : 'Hulk Playground';
 const metaDescription =
-	description ??
-	'Static Astro scaffold with a minimalist layout and GitHub Pages config.';
+	description ?? 'Lean Astro scaffold built for GitHub Pages.';
 const baseUrl = import.meta.env.BASE_URL;
 const navLinks = [
 	{ label: 'Home', href: `${baseUrl}` },
@@ -38,7 +37,7 @@ const year = new Date().getFullYear();
 				<slot />
 			</main>
 			<footer class="site-footer">
-				<p>Built with Astro · {year}</p>
+				<p>Built with Astro · {year} · Hulk approved</p>
 				<p>
 					<a href="https://astro.build">Astro Docs</a>
 					<span aria-hidden="true">·</span>

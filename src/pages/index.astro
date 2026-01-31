@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'Home';
-const description = 'Minimal portfolio scaffold for GitHub Pages.';
+const description = 'Minimal Astro scaffold for GitHub Pages.';
 ---
 
 <BaseLayout title={title} description={description}>
@@ -10,8 +10,7 @@ const description = 'Minimal portfolio scaffold for GitHub Pages.';
 		<p class="eyebrow">Small, deliberate, static</p>
 		<h1>Hulk Playground</h1>
 		<p class="lede">
-			A minimalist Astro site scaffolded for fast iteration and clear
-			communication.
+			Built to stay lean and obvious. No filler, just the parts that ship.
 		</p>
 		<div class="actions">
 			<a class="button" href={`${import.meta.env.BASE_URL}projects/`}>View projects</a>
@@ -21,18 +20,15 @@ const description = 'Minimal portfolio scaffold for GitHub Pages.';
 	<section class="grid">
 		<article>
 			<h2>Purpose</h2>
-			<p>
-				Keep the site light and readable, with just enough structure to
-				scale.
-			</p>
+			<p>Keep it light, keep it legible, and keep it moving.</p>
 		</article>
 		<article>
 			<h2>Focus</h2>
-			<p>Communicate intent quickly and keep the content tidy.</p>
+			<p>Say the important thing first. Everything else can wait.</p>
 		</article>
 		<article>
 			<h2>Stack</h2>
-			<p>Astro + static output for GitHub Pages compatibility.</p>
+			<p>Astro, static output, no drama on deploy.</p>
 		</article>
 	</section>
 </BaseLayout>
