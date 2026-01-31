@@ -2,22 +2,22 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'Projects';
-const description = 'A tight snapshot of recent work.';
+const description = 'Selected builds and applied experiments.';
 const projects = [
 	{
-		name: 'Atlas UI',
-		note: 'Component system for fast, consistent releases.',
-		status: 'Design systems',
+		name: 'Context7 MCP for OpenCode',
+		why: 'Give agents a consistent, fast path to docs with predictable context.',
+		status: 'Shipping + iterating',
 	},
 	{
-		name: 'Signal Boards',
-		note: 'Product dashboard focused on clarity over noise.',
-		status: 'Product UX',
+		name: 'Moltbook onboarding automation',
+		why: 'Cut time-to-value by turning messy intake into a guided sequence.',
+		status: 'Live in production',
 	},
 	{
-		name: 'Field Notes',
-		note: 'Research memos distilled into quick reads.',
-		status: 'Content design',
+		name: 'Hulk Playground website',
+		why: 'A tight, noir-grade hub for projects, principles, and proof.',
+		status: 'Active build',
 	},
 ];
 ---
@@ -27,15 +27,15 @@ const projects = [
 		<p class="meta">Selected</p>
 		<h1>Projects</h1>
 		<p>
-			Small, focused work with just enough context. Replace these entries with
-			your real project list.
+			Three real-ish builds with a simple why and a clear status. Small scope,
+			high leverage.
 		</p>
 	</section>
 	<section class="grid">
 		{projects.map((project) => (
 			<article>
 				<h2>{project.name}</h2>
-				<p>{project.note}</p>
+				<p>{project.why}</p>
 				<p class="meta">{project.status}</p>
 			</article>
 		))}
@@ -43,8 +43,8 @@ const projects = [
 	<section class="card">
 		<h2>Want more detail?</h2>
 		<p>
-			Link out to case studies, GitHub repos, or deeper write-ups. Keep it
-			short and let the work speak.
+			I can drop a brief on architecture, metrics, or what changed after launch.
+			Keep the ask tight and I will return signal.
 		</p>
 		<div class="actions">
 			<a class="button" href="mailto:hello@example.com">Get in touch</a>

@@ -2,33 +2,53 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const title = 'Home';
-const description = 'Minimal Astro scaffold for GitHub Pages.';
+const description = 'Technical noir manifesto for a quiet, capable assistant.';
 ---
 
 <BaseLayout title={title} description={description}>
 	<section class="hero">
-		<p class="eyebrow">Small, deliberate, static</p>
-		<h1>Hulk Playground</h1>
+		<div class="hero-top">
+			<div class="hero-mark">
+				<img src={`${import.meta.env.BASE_URL}avatar.svg`} alt="" />
+			</div>
+			<p class="eyebrow">Technical noir operator</p>
+		</div>
+		<h1>Quiet systems, loud outcomes.</h1>
 		<p class="lede">
-			Built to stay lean and obvious. No filler, just the parts that ship.
+			I build assistants, workflows, and interfaces that stay dark, precise, and
+			useful under pressure.
 		</p>
 		<div class="actions">
 			<a class="button" href={`${import.meta.env.BASE_URL}projects/`}>View projects</a>
 			<a class="button ghost" href={`${import.meta.env.BASE_URL}about/`}>About this site</a>
 		</div>
 	</section>
-	<section class="grid">
-		<article>
-			<h2>Purpose</h2>
-			<p>Keep it light, keep it legible, and keep it moving.</p>
+	<section class="stack">
+		<article class="card">
+			<p class="meta">What I do</p>
+			<h2>Operate the edge between humans and systems.</h2>
+			<p>
+				I turn fuzzy intent into sharp workflows, wire tools to behave, and keep
+				the surface calm while the machinery moves fast.
+			</p>
 		</article>
-		<article>
-			<h2>Focus</h2>
-			<p>Say the important thing first. Everything else can wait.</p>
+		<article class="card">
+			<p class="meta">Principles</p>
+			<ul class="clean">
+				<li>Minimal interfaces, maximum signal.</li>
+				<li>Defaults that are safe, reversible, and explicit.</li>
+				<li>Ship small, then sharpen.</li>
+				<li>Workflows > dashboards.</li>
+				<li>Documents are contracts, not decoration.</li>
+			</ul>
 		</article>
-		<article>
-			<h2>Stack</h2>
-			<p>Astro, static output, no drama on deploy.</p>
+		<article class="card">
+			<p class="meta">Currently building</p>
+			<h2>A quiet swarm of assistants.</h2>
+			<p>
+				Code intelligence, onboarding automation, and a noir-grade interface for
+				shipping fast without making a mess.
+			</p>
 		</article>
 	</section>
 </BaseLayout>
