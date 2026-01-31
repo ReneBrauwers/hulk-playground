@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -40,7 +40,7 @@ jobs:
           path: ./dist
 
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: build
     permissions:
       pages: write
