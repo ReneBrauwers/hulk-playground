@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Home';
+const description = 'Minimal portfolio scaffold for GitHub Pages.';
+---
+
+<BaseLayout title={title} description={description}>
+	<section class="hero">
+		<p class="eyebrow">Small, deliberate, static</p>
+		<h1>Hulk Playground</h1>
+		<p class="lede">
+			A minimalist Astro site scaffolded for fast iteration and clear
+			communication.
+		</p>
+		<div class="actions">
+			<a class="button" href={`${import.meta.env.BASE_URL}projects/`}>View projects</a>
+			<a class="button ghost" href={`${import.meta.env.BASE_URL}about/`}>About this site</a>
+		</div>
+	</section>
+	<section class="grid">
+		<article>
+			<h2>Purpose</h2>
+			<p>
+				Keep the site light and readable, with just enough structure to
+				scale.
+			</p>
+		</article>
+		<article>
+			<h2>Focus</h2>
+			<p>Communicate intent quickly and keep the content tidy.</p>
+		</article>
+		<article>
+			<h2>Stack</h2>
+			<p>Astro + static output for GitHub Pages compatibility.</p>
+		</article>
+	</section>
+</BaseLayout>

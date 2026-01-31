@@ -1,0 +1,6 @@
+Done:
+- Scaffolded Astro site with shared layout, nav, footer, and minimalist styling.
+- Added pages: Home (/), About (/about), Projects (/projects).
+- Added README with local dev instructions and GitHub Pages base path notes.
+- Updated astro.config.mjs for static output and optional BASE_PATH / SITE_URL.
+- Verified build: `npm run build` (2026-01-31).
