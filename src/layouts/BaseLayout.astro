@@ -13,6 +13,17 @@ const navLinks = [
 	{ label: 'Projects', href: `${baseUrl}projects/` },
 ];
 const year = new Date().getFullYear();
+// Render-time timestamp (Sydney time) to show when the site was last built.
+const lastUpdated = new Date().toLocaleString('en-AU', {
+	timeZone: 'Australia/Sydney',
+	weekday: undefined,
+	year: 'numeric',
+	month: '2-digit',
+	day: '2-digit',
+	hour: '2-digit',
+	minute: '2-digit',
+	hour12: false,
+});
 ---
 
 <!doctype html>
@@ -60,6 +71,7 @@ const year = new Date().getFullYear();
 			</main>
 			<footer class="site-footer">
 				<p>Built with Astro · {year} · Hulk approved</p>
+				<p class="footer-updated">Last updated: {lastUpdated}</p>
 				<p>
 					<a href="https://astro.build">Astro Docs</a>
 					<span aria-hidden="true">·</span>
@@ -216,6 +228,13 @@ const year = new Date().getFullYear();
 
 	.site-footer p {
 		margin: 4px 0;
+	}
+
+	.footer-updated {
+		font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+			"Courier New", monospace;
+		font-size: 0.85rem;
+		opacity: 0.9;
 	}
 
 	.site-footer a {
