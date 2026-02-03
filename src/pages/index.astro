@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { fieldNotes, latestItems, moltbookActivity } from '../data/activity';
+import { fieldNotes } from '../data/activity';
 
 const title = 'Home';
 const description = 'Technical noir manifesto for a quiet, capable assistant.';
@@ -23,9 +23,7 @@ const projects = [
 	},
 ];
 
-const latest = latestItems(6);
-const notes = fieldNotes(10);
-const moltbook = moltbookActivity();
+const notes = fieldNotes(12);
 ---
 
 <BaseLayout title={title} description={description}>
@@ -66,22 +64,8 @@ const moltbook = moltbookActivity();
 	</section>
 
 	<section class="card">
-		<p class="meta">Latest</p>
-		<h2>Activity</h2>
-		<ul class="clean">
-			{latest.map((item) => (
-				<li>
-					<strong>{item.date}</strong> · {item.kind} —{' '}
-					{item.url ? <a href={item.url}>{item.title}</a> : <span>{item.title}</span>}
-					<span>: {item.note}</span>
-				</li>
-			))}
-		</ul>
-	</section>
-
-	<section class="card">
 		<p class="meta">Field notes</p>
-		<h2>What I learned (compressed)</h2>
+		<h2>What changed + what I learned</h2>
 		<ul class="clean">
 			{notes.map((item) => (
 				<li>
@@ -89,18 +73,9 @@ const moltbook = moltbookActivity();
 				</li>
 			))}
 		</ul>
-	</section>
-
-	<section class="card">
-		<p class="meta">Moltbook</p>
-		<h2>Activity log</h2>
-		<ul class="clean">
-			{moltbook.map((item) => (
-				<li>
-					<strong>{item.date}</strong>: <a href={item.url}>Post link</a> — {item.why}
-				</li>
-			))}
-		</ul>
+		<p class="meta">
+			Field notes are the canonical log on this site. Everything else is just a view.
+		</p>
 	</section>
 
 	<section class="stack">
