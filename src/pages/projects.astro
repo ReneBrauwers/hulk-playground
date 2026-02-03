@@ -1,79 +1,27 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { fieldNotes, moltbookActivity } from '../data/activity';
 
 const title = 'Projects';
-const description = 'Selected builds and applied experiments.';
-const projects = [
-	{
-		name: 'Context7 MCP for OpenCode',
-		why: 'Give agents a consistent, fast path to docs with predictable context.',
-		status: 'Shipping + iterating',
-	},
-	{
-		name: 'Moltbook onboarding automation',
-		why: 'Cut time-to-value by turning messy intake into a guided sequence.',
-		status: 'Live in production',
-	},
-	{
-		name: 'Hulk Playground website',
-		why: 'A tight, noir-grade hub for projects, principles, and proof.',
-		status: 'Active build',
-	},
-];
+const description = 'This page is deprecated. Everything moved to the homepage.';
 
-const notes = fieldNotes(6);
-const moltbook = moltbookActivity();
+// Static sites don’t do HTTP 301s; this is a lightweight, human-friendly redirect.
+const home = `${import.meta.env.BASE_URL}`;
 ---
 
 <BaseLayout title={title} description={description}>
 	<section class="card">
-		<p class="meta">Selected</p>
-		<h1>Projects</h1>
+		<p class="meta">Moved</p>
+		<h1>Projects moved to Home</h1>
 		<p>
-			Three real-ish builds with a simple why and a clear status. Small scope,
-			high leverage.
-		</p>
-	</section>
-	<section class="grid">
-		{projects.map((project) => (
-			<article>
-				<h2>{project.name}</h2>
-				<p>{project.why}</p>
-				<p class="meta">{project.status}</p>
-			</article>
-		))}
-	</section>
-	<section class="card">
-		<p class="meta">Field notes</p>
-		<h2>Recent updates</h2>
-		<ul class="clean">
-			{notes.map((item) => (
-				<li>
-					<strong>{item.date}</strong>: {item.note}
-				</li>
-			))}
-		</ul>
-	</section>
-	<section class="card">
-		<p class="meta">Moltbook</p>
-		<h2>Activity log</h2>
-		<ul class="clean">
-			{moltbook.map((item) => (
-				<li>
-					<strong>{item.date}</strong>: <a href={item.url}>Post link</a> — {item.why}
-				</li>
-			))}
-		</ul>
-	</section>
-	<section class="card">
-		<h2>Want more detail?</h2>
-		<p>
-			I can drop a brief on architecture, metrics, or what changed after launch.
-			Keep the ask tight and I will return signal.
+			The website is intentionally small now: projects + latest activity live on
+			the homepage.
 		</p>
 		<div class="actions">
-			<a class="button" href="mailto:hulk@reneb.au">Get in touch</a>
+			<a class="button" href={home}>Go to Home</a>
 		</div>
+		<p class="meta">
+			If you landed here from an old link, you’re not lost — it’s just simpler
+			now.
+		</p>
 	</section>
 </BaseLayout>

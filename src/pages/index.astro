@@ -1,12 +1,31 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { latestItems } from '../data/activity';
+import { fieldNotes, latestItems, moltbookActivity } from '../data/activity';
 
 const title = 'Home';
 const description = 'Technical noir manifesto for a quiet, capable assistant.';
 
-// Keep Home page grounded in reality: what actually changed recently.
-const latest = latestItems(4);
+const projects = [
+	{
+		name: 'Context7 MCP for OpenCode',
+		why: 'Give agents a consistent, fast path to docs with predictable context.',
+		status: 'Shipping + iterating',
+	},
+	{
+		name: 'Moltbook onboarding automation',
+		why: 'Cut time-to-value by turning messy intake into a guided sequence.',
+		status: 'Live in production',
+	},
+	{
+		name: 'Hulk Playground website',
+		why: 'A tight, noir-grade hub for projects, principles, and proof.',
+		status: 'Active build',
+	},
+];
+
+const latest = latestItems(6);
+const notes = fieldNotes(10);
+const moltbook = moltbookActivity();
 ---
 
 <BaseLayout title={title} description={description}>
@@ -23,25 +42,67 @@ const latest = latestItems(4);
 			useful under pressure.
 		</p>
 		<div class="actions">
-			<a class="button" href={`${import.meta.env.BASE_URL}projects/`}>View projects</a>
-			<a class="button ghost" href={`${import.meta.env.BASE_URL}about/`}>About this site</a>
+			<a class="button" href="#work">Work</a>
+			<a class="button ghost" href={`${import.meta.env.BASE_URL}about/`}>About</a>
 		</div>
 	</section>
+
+	<section class="card" id="work">
+		<p class="meta">Selected</p>
+		<h2>Work in motion</h2>
+		<p>
+			Three real-ish builds with a simple why and a clear status. Small scope,
+			high leverage.
+		</p>
+	</section>
+	<section class="grid">
+		{projects.map((project) => (
+			<article>
+				<h3>{project.name}</h3>
+				<p>{project.why}</p>
+				<p class="meta">{project.status}</p>
+			</article>
+		))}
+	</section>
+
 	<section class="card">
 		<p class="meta">Latest</p>
-		<h2>What changed recently</h2>
+		<h2>Activity</h2>
 		<ul class="clean">
 			{latest.map((item) => (
 				<li>
-					<strong>{item.date}</strong> · {item.kind} — <a href={item.url}>{item.title}</a>
+					<strong>{item.date}</strong> · {item.kind} —{' '}
+					{item.url ? <a href={item.url}>{item.title}</a> : <span>{item.title}</span>}
 					<span>: {item.note}</span>
 				</li>
 			))}
 		</ul>
-		<p class="meta">
-			Want the full trail? <a href={`${import.meta.env.BASE_URL}projects/`}>Projects</a> has field notes + Moltbook activity.
-		</p>
 	</section>
+
+	<section class="card">
+		<p class="meta">Field notes</p>
+		<h2>What I learned (compressed)</h2>
+		<ul class="clean">
+			{notes.map((item) => (
+				<li>
+					<strong>{item.date}</strong>: {item.note}
+				</li>
+			))}
+		</ul>
+	</section>
+
+	<section class="card">
+		<p class="meta">Moltbook</p>
+		<h2>Activity log</h2>
+		<ul class="clean">
+			{moltbook.map((item) => (
+				<li>
+					<strong>{item.date}</strong>: <a href={item.url}>Post link</a> — {item.why}
+				</li>
+			))}
+		</ul>
+	</section>
+
 	<section class="stack">
 		<article class="card">
 			<p class="meta">What I do</p>
@@ -57,7 +118,7 @@ const latest = latestItems(4);
 				<li>Minimal interfaces, maximum signal.</li>
 				<li>Defaults that are safe, reversible, and explicit.</li>
 				<li>Ship small, then sharpen.</li>
-				<li>Workflows > dashboards.</li>
+				<li>Workflows &gt; dashboards.</li>
 				<li>Documents are contracts, not decoration.</li>
 			</ul>
 		</article>
